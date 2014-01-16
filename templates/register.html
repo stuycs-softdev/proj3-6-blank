@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block head %}
+<title> Sign Up </title>
+{% endblock %}
+
+{% block content %}
+<form method = "POST">
+    <h1> Register </h1>
+    <p> Sign up to receive email notifications </p>
+    <div class="container">
+	<label for="username"> Username </label>
+	<input type="text" name="username"> 
+	<br>
+	<label for="password"> Password</label>
+	<input type="password" name="password">
+	<br>
+	<label for="confirmation"> Confirm Password</label>
+	<input type="password" name="confirmpassword">
+	<br>
+	<!--link this up with google-->
+	<label for="email"> Email</label>
+	<input type="text" name="email">
+	<br>
+	<button type="Register" class="submit"> Register</button>
+    </div>
+</form>
+{% endblock %}
+
+
+
