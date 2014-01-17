@@ -17,9 +17,16 @@ def findMovieLink(title):
     return link
 
 def findActorLinks(movieLink):
-    pass
+    results = []
+
+    page = BeautifulSoup(urllib.urlopen(movieLink))
     
-    
+    for x in page.find_all("tr", {"class" : "even"} or {"class" : "odd"}):
+       
+        if x.parent['class'][0] == 'cast_list':
+            results.append([x.find("span").get_text(),"http://www.imdb.com/" + x.find("a")["href"]])
+
+    return results
 
 def movieInfo(title):
 
@@ -27,7 +34,7 @@ def movieInfo(title):
 
     actorLinks = findActorLinks(movieLink)
 
-    return movieLink
+    return actorLinks
 
 if __name__ == "__main__":
    print movieInfo("plan 9 from outer space")
