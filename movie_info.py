@@ -16,6 +16,19 @@ def findMovieLink(title):
 
     return link
 
+def findActorLinks(movieLink):
+    pass
+    
+    
+
+def movieInfo(title):
+
+    movieLink = findMovieLink(title)
+
+    actorLinks = findActorLinks(movieLink)
+
+    return movieLink
+
 if __name__ == "__main__":
-   print findMovieLink("plan 9 from outer space")
+   print movieInfo("plan 9 from outer space")
    
