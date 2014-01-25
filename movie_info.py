@@ -10,10 +10,10 @@ def findMovieLink(title):
     url = "http://www.imdb.com/find?q="+formated+"&s=all"
     page = BeautifulSoup(urllib.urlopen(url))
 
-    link = page.find("tr", {"class" : "findResult odd"}).find("a")["href"]
+    link = page.find("tr", {"class" : "findResult odd"}).find("a")["href"].split('?')[0]
 
-    link = "http://www.imdb.com/" + link
-
+    link = "http://www.imdb.com/" + link + "fullcredits?ref_=tt_cl_sm#cast"
+    print(link)
     return link
 
 def findActorLinks(movieLink):
