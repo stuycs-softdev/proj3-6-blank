@@ -30,9 +30,14 @@ def findActorLinks(movieLink):
 
     return results
 
-def findActorDates(actorLinks):
+def getResults(actorLinks):
 
+    results = {}
     actors = []
+
+    deadCount = 0
+    aliveCount = 0
+    unkownCount = 0
 
     for x in actorLinks:
         info = {}
@@ -42,23 +47,32 @@ def findActorDates(actorLinks):
 
         try:
             birth = page.find("time", {"itemprop" : "birthDate"}).find_all("a")[1].get_text()
-
             info['birth']= birth
         
+            try:
+                death =  page.find("time", {"itemprop" : "deathDate"}).find_all("a")[1].get_text()
+                        
+                info['death'] = death
+                info['status'] = "dead"
+
+            except:
+                info['death'] = "alive"
+                info['status'] = "alive"
+
         except:
             info['birth']= "unkown"
-        
-        try:
-            death =  page.find("time", {"itemprop" : "deathDate"}).find_all("a")[1].get_text()
+            info['death']= "unkown"
+            info['status']= "unkown"
 
-            info['death'] = death
-    
-        except:
-            info['death'] = "unkown/alive"
 
         actors.append(info)
 
-    return actors
+    results['actors'] = actors
+
+
+
+    return results
+
 
 def movieInfo(title):
 
@@ -66,9 +80,10 @@ def movieInfo(title):
 
     actorLinks = findActorLinks(movieLink)
 
-    actorDates = findActorDates(actorLinks)
+    data = getResults(actorLinks)
 
-    return actorDates
+    
+    return data
 
 if __name__ == "__main__":
    print movieInfo("plan 9 from outer space")
