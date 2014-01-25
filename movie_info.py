@@ -32,33 +32,33 @@ def findActorLinks(movieLink):
 
 def findActorDates(actorLinks):
 
-    actorDates = []
+    actors = []
 
     for x in actorLinks:
-        info = []
-        info.append(x[0])
+        info = {}
+        info['name']= x[0]
         
         page = BeautifulSoup(urllib.urlopen(x[1]))
 
         try:
             birth = page.find("time", {"itemprop" : "birthDate"}).find_all("a")[1].get_text()
 
-            info.append(birth)
+            info['birth']= birth
         
         except:
-            info.append("unkown")
+            info['birth']= "unkown"
         
         try:
             death =  page.find("time", {"itemprop" : "deathDate"}).find_all("a")[1].get_text()
 
-            info.append(death)
+            info['death'] = death
     
         except:
-            info.append("unkown/alive")
+            info['death'] = "unkown/alive"
 
-        actorDates.append(info)
+        actors.append(info)
 
-    return actorDates
+    return actors
 
 def movieInfo(title):
 
