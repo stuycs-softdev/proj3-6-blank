@@ -54,22 +54,25 @@ def getResults(actorLinks):
                         
                 info['death'] = death
                 info['status'] = "dead"
+                deadCount = deadCount + 1
 
             except:
                 info['death'] = "alive"
                 info['status'] = "alive"
+                aliveCount = aliveCount + 1
 
         except:
             info['birth']= "unkown"
             info['death']= "unkown"
             info['status']= "unkown"
-
+            unkownCount = unkownCount + 1
 
         actors.append(info)
 
     results['actors'] = actors
 
-
+    results['statusCounts'] = {'dead': deadCount, 'alive': aliveCount, 'unkown':unkownCount, 'total': unkownCount + aliveCount + deadCount}
+    
 
     return results
 
@@ -86,5 +89,5 @@ def movieInfo(title):
     return data
 
 if __name__ == "__main__":
-   print movieInfo("plan 9 from outer space")
+   print movieInfo("Apocalypse Now")
    
