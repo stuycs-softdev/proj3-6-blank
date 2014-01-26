@@ -121,5 +121,5 @@ def movieInfo(title,maxActors):
     return data
 
 if __name__ == "__main__":
-    print(movieInfo("star wars episode IV", 10))
+    print(movieInfo("the good, the bad, and the ugly", 10))
     
