@@ -56,29 +56,33 @@ def getResults(actorLinks):
         page = BeautifulSoup(urllib.urlopen(x[1]))
 
         try:
-            birth = page.find("time", {"itemprop" : "birthDate"}).find_all("a")[1].get_text()
+            birth = int(page.find("time", {"itemprop" : "birthDate"}).find_all("a")[1].get_text())
             info['birth']= birth
         
 
             try:
-                death =  page.find("time", {"itemprop" : "deathDate"}).find_all("a")[1].get_text()
+                death =  int(page.find("time", {"itemprop" : "deathDate"}).find_all("a")[1].get_text())
                 
                 info['death'] = death
                 info['status'] = "dead"
                 info['deathPrediction'] = death
                 deadCount = deadCount + 1
                 totalCount = totalCount + 1
-                allDead = death
+                if death > allDead:
+                    allDead = death
+            
                 
             except:
                 info['death'] = "alive"
                 info['status'] = "alive"
-                age = int(currentYear) - int(birth)
+                age = int(currentYear) - birth
                 yearsLeft = LIFEDATA[age]
                 deathYear = currentYear + yearsLeft
                 info['deathPrediction'] = deathYear
                 aliveCount = aliveCount + 1
                 totalCount = totalCount + 1
+                if deathYear > allDead:
+                    allDead = deathYear
 
         
         
@@ -97,6 +101,9 @@ def getResults(actorLinks):
     results['statusCounts'] = {'dead': deadCount, 'alive': aliveCount, 'unkown':unkownCount, 'total': totalCount}
     
     results['statusPercents'] = {'dead': deadCount/float(totalCount) * 100, 'alive': aliveCount/float(totalCount) * 100, 'unkown': unkownCount/float(totalCount) * 100}
+    
+    #Predicted year when cas is dead
+    results['predictedAllDeadYear'] = allDead
 
     return results
 
@@ -114,5 +121,5 @@ def movieInfo(title,maxActors):
     return data
 
 if __name__ == "__main__":
-    print(movieInfo("fight club", 10))
+    print(movieInfo("star wars episode IV", 10))
     
