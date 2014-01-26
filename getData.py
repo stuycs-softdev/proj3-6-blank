@@ -13,8 +13,13 @@ if __name__ == "__main__":
 
     result = []
 
-    for x in deathpage.find_all("tr",{"bgcolor" : "#eeefef"}):
+
+    for x in deathpage.find_all("tr",{"valign":"bottom"}):
         k = x.find_all("td")
-        result.append(int((float(k[3].getText())+float(k[6].getText())) / 2))
-    
+        try: 
+            result.append(int((float(k[3].getText())+float(k[6].getText())) / 2))
+        except:
+            pass
+
+
     print(result)
