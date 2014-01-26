@@ -13,21 +13,19 @@ def findMovieLink(title):
     link = page.find("tr", {"class" : "findResult odd"}).find("a")["href"].split('?')[0]
 
     link = "http://www.imdb.com/" + link + "fullcredits?ref_=tt_cl_sm#cast"
-    print(link)
     return link
 
-def findActorLinks(movieLink):
+def findActorLinks(movieLink,maxActors):
     results = []
-
     page = BeautifulSoup(urllib.urlopen(movieLink))
-    
+    count = 0
     for x in page.find_all("tr", {"class" : ["odd","even"]}):
        
         if x.parent['class'][0] == 'cast_list':
             results.append([x.find("span").get_text(),"http://www.imdb.com/" + x.find("a")["href"]])
-
-
-
+            count = count + 1
+            if count == maxActors:
+                break
     return results
 
 def getResults(actorLinks):
@@ -38,6 +36,7 @@ def getResults(actorLinks):
     deadCount = 0
     aliveCount = 0
     unkownCount = 0
+    totalCount = 0
 
     for x in actorLinks:
         info = {}
@@ -55,33 +54,38 @@ def getResults(actorLinks):
                 info['death'] = death
                 info['status'] = "dead"
                 deadCount = deadCount + 1
+                totalCount = totalCount + 1
 
             except:
                 info['death'] = "alive"
                 info['status'] = "alive"
                 aliveCount = aliveCount + 1
+                totalCount = totalCount + 1
 
         except:
             info['birth']= "unkown"
             info['death']= "unkown"
             info['status']= "unkown"
             unkownCount = unkownCount + 1
+            totalCount = totalCount + 1
 
         actors.append(info)
-
+        
     results['actors'] = actors
 
-    results['statusCounts'] = {'dead': deadCount, 'alive': aliveCount, 'unkown':unkownCount, 'total': unkownCount + aliveCount + deadCount}
+    results['statusCounts'] = {'dead': deadCount, 'alive': aliveCount, 'unkown':unkownCount, 'total': totalCount}
     
+    results['statusPercents'] = {'dead': deadCount/float(totalCount) * 100, 'alive': aliveCount/float(totalCount) * 100, 'unkown': unkownCount/float(totalCount) * 100}
 
     return results
 
-
-def movieInfo(title):
+#maxActors is maximum number of actors returned
+#0 means unlimited actors
+def movieInfo(title,maxActors):
 
     movieLink = findMovieLink(title)
 
-    actorLinks = findActorLinks(movieLink)
+    actorLinks = findActorLinks(movieLink,maxActors)
 
     data = getResults(actorLinks)
 
@@ -89,5 +93,5 @@ def movieInfo(title):
     return data
 
 if __name__ == "__main__":
-   print movieInfo("Apocalypse Now")
+   print movieInfo("fight club", 2)
    
