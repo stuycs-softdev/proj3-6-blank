@@ -58,8 +58,15 @@ We just care about some more than others.</div>
       <input name = "username_login" placeholder="Username" type="text"> <br>
       
       <label> Password </label>
-      <input name = "password_login" placeholder="Password" type="text"> <br>
+      <input name = "password_login" placeholder="Password" type="password"> <br>
       <input type = "submit" value = "Login">
+      {% if type_login ==1 %}
+      <div class="ui error form segment">
+        <div class="ui error message">
+          <p id="error"> Your password did not match your username. Please try again.</p>
+        </div>
+      </div>
+      {% endif %}
     </form>
   </div>
   <div id = "tabs-2"> 
@@ -68,11 +75,34 @@ We just care about some more than others.</div>
       <input name = "username_register" placeholder="Username" type="text"> <br>
       
       <label> Password </label>
-      <input name = "password_register" placeholder="Password" type="text"> <br>
+      <input name = "password_register" placeholder="Password" type="password"> <br>
       
       <label> Confirm Password </label>
-      <input name = "confirm_password" placeholder="Password" type="text"> <br>
+      <input name = "confirm_password" placeholder="Password" type="password"> <br>
       <input type = "submit" value = "Login">
+    {% if type_register==0 %}
+    <p style="color:green"> Registration Successful!</p>
+    {% elif type_register==1 %}
+    <div class="ui error form segment">
+      <div class="ui error message">
+        <p id="error">Sorry, this username is already taken! Please choose another.</p>
+      </div>
+    </div>
+    
+    {% elif type_register==2 %}
+    <div class="ui error form segment">
+      <div class="ui error message">
+        <p id="error">Your username must be at least 4 character long and your password must be at least 6 characters long.</p>
+      </div>
+    </div>
+    
+    {% elif type_register==3 %}
+    <div class="ui error form segment">
+      <div class="ui error message">
+        <p id="error">Your passwords did not match. Please try again.</p>
+      </div>
+    </div>
+    {% endif %}
       
     </form>
   </div>
