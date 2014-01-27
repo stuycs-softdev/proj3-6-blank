@@ -1,12 +1,66 @@
-{% extends "layout.html" %}
-{% block title %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='stylesheet.css'/>
+  <link href='http://fonts.googleapis.com/css?family=Loved+by+the+King' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Averia+Sans+Libre' rel='stylesheet' type='text/css'>
+  
+  <script type="text/javascript" src='script.js'></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+</head>
+<body>
+<div id = "header" > 
+Death Watcher
 
-{% endblock %}
+<form> 
+</form> 
 
-{% block content %}
+</div>
+<div id = "content">
+<div class = "spooky-text"> 
+Everybody dies. <br> 
+We just care about some more than others.</div>
+<div id = "rotator-ui">
+<div> SOME DEAD PEOPLE YOU (might) CARE ABOUT</div>
+<div id = "js-box"> 
 
+<img src = "http://www.flitetech.com/images/left-arrow.png" class = "scroll-left">
+<span id="dead-pic">
+<img src = "http://static3.wikia.nocookie.net/__cb20130604231142/lotr/images/9/95/Legolask.jpg" class="dead-person">
+</span>
+<img src = "http://www.flitetech.com/images/right-arrow.png" class = "scroll-right">
 
-{% endblock %}
+</div>
+<div class = "nametag">
+<p class = "info-box">
+    <span class = "actor"> Legolas </span> <br>
+    <span class = "movie"> Lord of the Rings </span>
+</p> 
+</div>
+<img>
+</div> 
+<div id = "footer">
 
+<a href = "https://github.com/stuycs-softdev/proj3-6-blank"> <h5 id = "github-link">Visit our repository on GitHub!</h5> 
+</a>
+<a href ="http://xkcd.com/493/"> 
 
-
+<table id = "xkcd">
+    <tr>
+    <td> <img src="http://jlevrt.webstarts.com/uploads/114814-magic-marker-icon-arrows-arrow-redirect-right1-ps.png" id = "redirect-icon">
+    <td>
+        <h5 id= "xkcd-link"> The comic that started it all. </h5>
+    </td>
+    <td> 
+        <img src = "http://www.userlogos.org/files/logos/Mafia_Penguin/xkcdLogo.png" id = "xkcd-img">
+    </td>
+    </tr>
+</table>
+</a>
+</div>
+</body>
+</html>
