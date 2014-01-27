@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel='stylesheet' href='stylesheet.css'/>
+  <script type="text/javascript" src="/static/js/jquery.js"></script>
+  <link rel='stylesheet' href='{{ url_for("static",filename="stylesheet.css")}}'/>
   <link href='http://fonts.googleapis.com/css?family=Loved+by+the+King' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Averia+Sans+Libre' rel='stylesheet' type='text/css'>
-  
-  <script type="text/javascript" src='script.js'></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script type="text/javascript" src={{url_for('static',filename='script.js')}}></script>
 </head>
 <body>
 <div id = "header" > 

@@ -3,24 +3,29 @@ var peopleList =
 ["Luis Avolos", "The Electric Company", "01/22/2014"],
 ["Roger Lloyd Pack", "Only Fools and Horses", "01/22/2014"],
 ["Dave Madden", ""]];
-
 $(document).ready(function(){
     $(".scroll-left").click(left);
-    $(".scroll-right").click(function(){
-        src = "http://static2.wikia.nocookie.net/__cb20080318220810/lotr/images/4/43/Gimli.jpg";
-        var $old = $(".dead-person");
-        var $new = $("<img src='" + src+"'</img>").addClass("dead-person");
-        $old.animate({
-            'opacity':0,
-            effect:"scale",
-            direction:"horizontal"
-        }, function () { 
-            $old.remove();
-            $("#dead-pic").append($new);
-            })
-        
-    });
+    $(".scroll-right").click(right);
 });
+
+var right = function(){
+    var src = "http://static2.wikia.nocookie.net/__cb20080318220810/lotr/images/4/43/Gimli.jpg";
+    var $old = $(".dead-person");
+    var $new = $("<img src='" + src+"'</img>").addClass("dead-person");  
+    $new.css('opacity', 0);
+    
+    $old.animate({
+        'opacity':0,
+        'width': 0
+    }, 600,  function () { 
+        $old.remove();
+        $("#dead-pic").append($new);
+        var width = $new.css('width');
+        $new.css('width',0);
+        $new.animate({'opacity':1, 'width': width},600,function() {$new.css('width',width)});
+    })
+    namechange();
+}
 
 
 

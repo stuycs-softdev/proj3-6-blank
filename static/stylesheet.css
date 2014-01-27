@@ -1,0 +1,90 @@
+
+#header{
+    height: 10%;
+}
+.spooky-text{
+    font-family: 'Jolly Lodger', cursive;
+    text-align: center;
+}
+#dead-pic{
+    padding: 10px;
+
+}
+#rotator-ui{
+    width: 500px;
+    height: 500px;
+    display:block;
+    text-align:center;
+   margin-left: auto;
+   margin-right:auto;
+}
+.dead-person{
+    height: 200px;   
+    border-top: 10px dotted #2E2E2E; 
+    border-bottom: 10px dotted #2E2E2E; 
+    border-right: 8px solid #2E2E2E; 
+    border-left: 8px solid #2E2E2E;
+}
+
+.scroll-left{
+    height: 220px;
+    width: 50px;
+}
+.scroll-right{
+    height: 220px;
+    width: 50px;
+
+}
+
+.nametag{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 75px;
+    width:160px;
+    background-image: url("http://www.artlex.com/ArtLex/p/images/parchment_blnk.scroll.lg.gif");
+    background-size:100% 100%;
+}
+.info-box{
+    font-family: 'Rock Salt', cursive;
+    text-align: center; 
+    margin:0;
+    padding:17 0 0 0;
+}
+.movie{
+    font-family: 'Averia Sans Libre', cursive;
+    font-size: 10;   
+}
+#content{
+    height: 70%;
+}
+#footer{
+    height: 10%;
+    margin-bottom: 0px;
+}
+    
+#github-link{
+    display: inline;   
+    position: absolute;
+    left: 10px;
+
+}
+#redirect-icon{
+    height:20px;    
+    
+}
+#xkcd{
+    position: absolute;
+    right: 10px;
+}
+#xkcd-img{
+    width:50px;
+}
+#xkcd-link{
+    margin-left:auto;
+    margin-right:auto;
+    display: inline;
+    font-family: 'Loved by the King', cursive;
+    font-size: 16px;
+}
