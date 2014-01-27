@@ -7,18 +7,32 @@ from operator import itemgetter
 LIFEDATA = [78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 32, 31, 30, 29, 28, 27, 26, 26, 25, 24, 23, 22, 21, 21, 20, 19, 18, 18, 17, 16, 15, 15, 14, 13, 13, 12, 11, 11, 10, 10, 9, 8, 8, 7, 7, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
 
 
-#I plan to revise this so you can get multiple results and choose your movie from them
-def findMovieLink(title):
+#returns num links with title
+def findMovieLinks(title, num):
 
     formated = title.replace(' ','+')
 
+    results = []
     url = "http://www.imdb.com/find?q="+formated+"&s=all"
     page = BeautifulSoup(urllib.urlopen(url))
+   
+    
 
-    link = page.find("tr", {"class" : "findResult odd"}).find("a")["href"].split('?')[0]
+    for x in page.find("div", {"class" : "findSection"}).find_all("tr"):
+  
+        info = {}
+        
+        link = x.find("a")["href"].split('?')[0]
+        link = "http://www.imdb.com/" + link + "fullcredits?ref_=tt_cl_sm#cast"
+        
+        info['link'] = link
+        info['title'] = x.getText()
+        info['pic'] = x.find("img")['src']
+        results.append(info)
 
-    link = "http://www.imdb.com/" + link + "fullcredits?ref_=tt_cl_sm#cast"
-    return link
+        if len(results) >= num:
+            break;
+    return results
 
 def findActorLinks(movieLink,maxActors):
     results = []
@@ -109,9 +123,9 @@ def getResults(actorLinks):
 
 #maxActors is maximum number of actors returned
 #0 means unlimited actors
-def movieInfo(title,maxActors):
+#get link form findMovieLinks
+def movieInfo(movieLink,maxActors):
 
-    movieLink = findMovieLink(title)
 
     actorLinks = findActorLinks(movieLink,maxActors)
 
@@ -121,5 +135,5 @@ def movieInfo(title,maxActors):
     return data
 
 if __name__ == "__main__":
-    print(movieInfo("the good, the bad, and the ugly", 10))
-    
+    print(movieInfo(findMovieLinks("the good the bad and the ugly", 10)[1]['link'],10))
+
