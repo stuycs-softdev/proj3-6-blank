@@ -59,6 +59,11 @@
 #content{
     height: 70%;
 }
+
+#tabs{
+    text-align: left;
+}
+
 #footer{
     height: 10%;
     margin-bottom: 0px;

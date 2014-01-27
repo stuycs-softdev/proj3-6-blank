@@ -2,12 +2,20 @@
 <html>
 <head>
   <script type="text/javascript" src="/static/js/jquery.js"></script>
+  
+  <link rel="stylesheet" href = "//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
   <link rel='stylesheet' href='{{ url_for("static",filename="stylesheet.css")}}'/>
   <link href='http://fonts.googleapis.com/css?family=Loved+by+the+King' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Averia+Sans+Libre' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src={{url_for('static',filename='script.js')}}></script>
+  <script> 
+    $(function() {
+    $("#tabs").tabs();
+    }); 
+  </script>
 </head>
 <body>
 <div id = "header" > 
@@ -30,7 +38,6 @@ We just care about some more than others.</div>
 <img src = "http://static3.wikia.nocookie.net/__cb20130604231142/lotr/images/9/95/Legolask.jpg" class="dead-person">
 </span>
 <img src = "http://www.flitetech.com/images/right-arrow.png" class = "scroll-right">
-
 </div>
 <div class = "nametag">
 <p class = "info-box">
@@ -39,7 +46,40 @@ We just care about some more than others.</div>
 </p> 
 </div>
 <img>
-</div> 
+
+<div id = "tabs">
+  <ul>
+    <li> <a href="#tabs-1">Login</a> </li>
+    <li> <a href="#tabs-2">Register</a></li>
+  </ul>
+  <div id = "tabs-1">
+    <form action = "login" method = "post">
+      <label> Username </label> 
+      <input name = "username_login" placeholder="Username" type="text"> <br>
+      
+      <label> Password </label>
+      <input name = "password_login" placeholder="Password" type="text"> <br>
+      <input type = "submit" value = "Login">
+    </form>
+  </div>
+  <div id = "tabs-2"> 
+    <form action = "register" method = "post">
+      <label> Username </label> 
+      <input name = "username_register" placeholder="Username" type="text"> <br>
+      
+      <label> Password </label>
+      <input name = "password_register" placeholder="Password" type="text"> <br>
+      
+      <label> Confirm Password </label>
+      <input name = "confirm_password" placeholder="Password" type="text"> <br>
+      <input type = "submit" value = "Login">
+      
+    </form>
+  </div>
+</div>
+
+
+</div> <!--closes content-->
 <div id = "footer">
 
 <a href = "https://github.com/stuycs-softdev/proj3-6-blank"> <h5 id = "github-link">Visit our repository on GitHub!</h5> 
