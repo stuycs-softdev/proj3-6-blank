@@ -21,6 +21,7 @@ def search():
 
 @app.route("/results")
 def results():
+    print session["stats"][0]["pic"]
 	#actors = stats['actors']
 	#for sTable,data in stats.iteritems():
 	#	if sTable == 'predictedAllDeadYear':
@@ -41,9 +42,9 @@ def results():
 	#				aliveCount = statistic
 	#			if stat == 'unkown':
 	#				unkownCoutn = statistic
-	return render_template("results.html",results=session["stats"])
+	#return render_template("results.html",results=session["stats"])
 	#return render_template("results.html",  deadCount = deadCount)
-    return render_template("results.html",results=session["stats"])
+    return render_template("res.html",results=session["stats"])
 
 
 
