@@ -22,15 +22,28 @@
       <input name  = "movie" placeholder="Movie" type="text"> 
       <input type = "submit" value = "Search">
     </form> 
+    {% if "username" in session %} 
+    {% endif %}
   </div>
   <div id = "content">
     <br>
+    {{ind = 0}}
     {% for result in results %}
-    <div class = "bevel">
+    <div class = "bevel" index = ind>
       <img src = {{result['pic']}} class = "pic">
       <a href={{result['link']}} target = "_blank"  class = "title"> {{result['title']}} </a>
     </div>
+    {{ind = ind + 1}}
     {% endfor %}
   </div>
+  {% if {{data}} != None}
+  <div id = 'statuscounts'>
+    <div id = 'alive'> Number Living {{data['statusCounts']['alive']}} </div>
+    <div id = 'dead'> Number Dead {{data['statusCounts']['dead']}} </div>
+    <div id = 'unknown'> Number Misplaced {{data['statusCounts']['unkown']}} </div>
+  </div>
+  <div id = 'all-dead'> Everyone will be dead by {{data['predictedAllDeadYear']}} </div>
+    
+  {% endif %}
 </body>
 </html>

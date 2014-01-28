@@ -21,18 +21,15 @@ def search():
 
 @app.route("/results")
 def results():
-    ans = []
-    for result in session['stats']:
-        foo = []
-        foo.append(movie_info.findActorLinks(result['link'],20))
-        print(foo)
-        foo.append(movie_info.getResults(foo[0]))
-        ans.append(foo)
-        print(foo)
-    print(movie_info.findActorLinks(session['stats'][0]['link'],20))
-    return render_template("res.html",results=session["stats"])
-
-
+    choice = request.args.get("choice")
+    if choice != None:
+        x = session['stats'][int(choice)]
+        ans = []
+        ans.append(movie_info.findActorLinks(x['link'],20))
+        ans.append(movie_info.getResults(ans[0]))
+        return render_template("res.html", results=[x], data = ans);
+    else: 
+        return render_template("res.html",results=session["stats"])
 
 @app.route("/register",methods=['GET','POST'])
 def register():

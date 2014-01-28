@@ -40,6 +40,11 @@ html, body{
     text-align: left;
     display: inline-block;
 }
+#logout{
+    text-align: right;
+    display: inline-block;
+    margin-left:auto;
+}
 .spooky-text{
     font-family: 'Jolly Lodger', cursive;
     text-align: center;

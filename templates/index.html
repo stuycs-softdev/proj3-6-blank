@@ -26,6 +26,9 @@
       <input name  = "movie" placeholder="Movie" type="text"> 
       <input type = "submit" value = "Search">
     </form> 
+    {% if "username" in session %}
+    <a href = "/logout" id = "logout"> Logout </a>
+    {% endif %}
   </div>
   <div id = "content">
     <div class = "spooky-text"> 
@@ -55,6 +58,8 @@
 	<li> <a href="#tabs-1">Login</a> </li>
 	<li> <a href="#tabs-2">Register</a></li>
       </ul>
+      {% if "username" in session %}
+      {% else %}
       <div id = "tabs-1">
 	<form action = "login" method = "post">
 	  <label> Username </label> 
@@ -113,7 +118,7 @@
 	
       </div>
     </div>
-    
+    {% endif %}
     
   </div> <!--closes content-->
   <div id = "footer">
