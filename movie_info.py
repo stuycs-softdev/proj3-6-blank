@@ -56,7 +56,6 @@ def getResults(actorLinks):
     aliveCount = 0
     unkownCount = 0
     totalCount = 0
-
     deathlink = "http://www.ssa.gov/OACT/STATS/table4c6.html"
     deathpage = BeautifulSoup(urllib.urlopen(deathlink))
 
@@ -113,7 +112,7 @@ def getResults(actorLinks):
     results['actors'] = actors
 
     results['statusCounts'] = {'dead': deadCount, 'alive': aliveCount, 'unkown':unkownCount, 'total': totalCount}
-    
+    if totalCount == 0: return results
     results['statusPercents'] = {'dead': deadCount/float(totalCount) * 100, 'alive': aliveCount/float(totalCount) * 100, 'unkown': unkownCount/float(totalCount) * 100}
     
     #Predicted year when cas is dead

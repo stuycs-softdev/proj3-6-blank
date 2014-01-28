@@ -21,29 +21,15 @@ def search():
 
 @app.route("/results")
 def results():
-    print session["stats"][0]["pic"]
-	#actors = stats['actors']
-	#for sTable,data in stats.iteritems():
-	#	if sTable == 'predictedAllDeadYear':
-	#		predicitedAllDeadYear = data
-	#	if sTable == 'statusPercents':
-	#		for stat,statistic in statusPercents.iteritems():
-	#			if stat == 'dead':
-	#				deadCountPercent = statistics
-	#			if stat == 'alive':
-	#				aliveCountPercent = statistics
-	#			if stat == 'unkown':
-	#				unkownCountPercent = statistics
-	#	if sTable == 'statusCounts':
-	#		for stat,statistic in statusCounts.iteritems():
-	#			if stat == 'dead':
-	#				deadCount = statistic
-	#			if stat == 'alive':
-	#				aliveCount = statistic
-	#			if stat == 'unkown':
-	#				unkownCoutn = statistic
-	#return render_template("results.html",results=session["stats"])
-	#return render_template("results.html",  deadCount = deadCount)
+    ans = []
+    for result in session['stats']:
+        foo = []
+        foo.append(movie_info.findActorLinks(result['link'],20))
+        print(foo)
+        foo.append(movie_info.getResults(foo[0]))
+        ans.append(foo)
+        print(foo)
+    print(movie_info.findActorLinks(session['stats'][0]['link'],20))
     return render_template("res.html",results=session["stats"])
 
 
