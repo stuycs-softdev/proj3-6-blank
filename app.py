@@ -15,7 +15,7 @@ def home():
 def search():
 	if request.method=="POST":
 		movieQuery = request.form['movie']
-		stats = movieInfo(findMovieLinks(movieQuery, 10)[1]['link'],10))
+		stats = movieInfo(findMovieLinks(movieQuery, 10)[1]['link'],10)
 		dead = stats['statusCounts'].get('dead')
 		alive = stats['statusCounts'].get('alive')
 		unknown = stats['statusCounts'].get('unkown')
