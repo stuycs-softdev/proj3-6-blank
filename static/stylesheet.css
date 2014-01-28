@@ -1,21 +1,21 @@
-#content{
-    background-image: url("http://www.greektome.net/sitebuilder/images/Nice_Grey_Background_op_680x453-1003x877.jpg");
-    background-size: 100% 100%;
-    height:auto;
+html, body{
+
+    height:100%;
 }
 #header{
     height: 10%;
     width: 100%;
 }
+#content{
+    height: 80%;
+    width: 100%;
+    background-image: url("http://www.greektome.net/sitebuilder/images/Nice_Grey_Background_op_680x453-1003x877.jpg");
+    background-size: 100% 100%;
+}
+
 #movie-search{
     text-align: left;
     display: inline-block;
-}
-#person-search{
-    right: 0px;
-    text-align:right;
-    display:inline-block;
-    float:right;
 }
 .spooky-text{
     font-family: 'Jolly Lodger', cursive;
@@ -77,9 +77,12 @@
 }
 .movie{
     font-family: 'Averia Sans Libre', cursive;
-    font-size: 10;   
+    font-size: 20px;
+    line-height: 70%
 }
-
+.death-date{
+    font-size: 15px;   
+}
 #tabs{
     text-align: right;
     width: 400px;

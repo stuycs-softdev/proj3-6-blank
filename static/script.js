@@ -25,6 +25,7 @@ var initialize = function(){
     $(".actor").text(peopleList[index][0]);
     $(".movie").text(peopleList[index][1]);
     $(".dead-person").attr("src",peopleList[index][4]);
+    $(".death-date").text("Died: "+peopleList[index][3]);
     var namewidth = ($(".actor").width()*2 + 1) + "px";
     $(".nametag").animate({'width': namewidth});
 }
@@ -75,8 +76,9 @@ var left = function(){
 var namechange = function(){
     var actor = peopleList[index][0];
     var movie = peopleList[index][1];
+    var deathdate = peopleList[index][3];
     var $oldname= $(".info-box");
-    var $newname= $('<p class = "info-box"><span class = "actor">'+actor+'</span> <br><span class = "movie">'+movie+'</span></p> ');
+    var $newname= $('<p class = "info-box"><span class = "actor">'+actor+'</span> <br><span class = "movie">'+movie+'</span><br><span class = "death-date">'+deathdate+'</span></p> ');
     $oldname.fadeOut(300, function() { $oldname.remove();});
     $(".nametag").animate({'width':0},600);
     $(".nametag").append($newname);
