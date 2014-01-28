@@ -1,4 +1,7 @@
-
+#content{
+    background-image: url("http://www.greektome.net/sitebuilder/images/Nice_Grey_Background_op_680x453-1003x877.jpg");
+    background-size: 100% 100%;
+}
 #header{
     height: 10%;
 }
@@ -11,7 +14,7 @@
 
 }
 #rotator-ui{
-    width: 500px;
+    width: 700px;
     height: 500px;
     display:block;
     text-align:center;
@@ -19,7 +22,7 @@
    margin-right:auto;
 }
 .dead-person{
-    height: 200px;   
+    height: 300px;   
     border-top: 10px dotted #2E2E2E; 
     border-bottom: 10px dotted #2E2E2E; 
     border-right: 8px solid #2E2E2E; 
@@ -27,11 +30,11 @@
 }
 
 .scroll-left{
-    height: 220px;
+    height: 300px;
     width: 50px;
 }
 .scroll-right{
-    height: 220px;
+    height: 300px;
     width: 50px;
 
 }
@@ -57,7 +60,7 @@
     font-size: 10;   
 }
 #content{
-    height: 70%;
+    height: 90%;
 }
 
 #tabs{
@@ -65,8 +68,9 @@
 }
 
 #footer{
-    height: 10%;
+    height: 100px;
     margin-bottom: 0px;
+    float: left;
 }
     
 #github-link{
