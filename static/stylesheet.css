@@ -74,8 +74,11 @@
 }
 
 #tabs{
-    text-align: left;
+    text-align: right;
     width: 500px;
+    position: absolute;
+    
+    
 }
 
 #footer{

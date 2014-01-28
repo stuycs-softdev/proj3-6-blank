@@ -63,13 +63,6 @@ We just care about some more than others.</div>
       <label> Password </label>
       <input name = "password_login" placeholder="Password" type="password"> <br>
       <input type = "submit" value = "Login">
-      {% if type_login ==1 %}
-      <div class="ui error form segment">
-        <div class="ui error message">
-          <p id="error"> Your password did not match your username. Please try again.</p>
-        </div>
-      </div>
-      {% endif %}
     </form>
   </div>
   <div id = "tabs-2"> 
@@ -83,6 +76,9 @@ We just care about some more than others.</div>
       <label> Confirm Password </label>
       <input name = "confirm_password" placeholder="Password" type="password"> <br>
       <input type = "submit" value = "Login">
+    </form>
+  </div>
+  <div id = "errors">
     {% if type_register==0 %}
     <p style="color:green"> Registration Successful!</p>
     {% elif type_register==1 %}
@@ -107,8 +103,14 @@ We just care about some more than others.</div>
     </div>
     {% endif %}
       
-    </form>
-  </div>
+      {% if type_login ==1 %}
+      <div class="ui error form segment">
+        <div class="ui error message">
+          <p id="error"> Your password did not match your username. Please try again.</p>
+        </div>
+      </div>
+      {% endif %}
+
 </div>
 
 
