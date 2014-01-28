@@ -6,6 +6,20 @@ $(document).ready(function(){
     initialize();
     $(".scroll-left").click(left);
     $(".scroll-right").click(right);
+
+    $(".scroll-left").mouseenter(function(){
+	$(".scroll-left").attr("src","http://i.imgur.com/VNIMZMc.png");
+    });
+    $(".scroll-left").mouseout(function(){
+	$(".scroll-left").attr("src","http://i.imgur.com/GJSstSW.png");
+    });
+    $(".scroll-right").mouseenter(function(){
+	$(".scroll-right").attr("src","http://i.imgur.com/eSt5zkQ.png");
+    });
+    $(".scroll-right").mouseout(function(){
+	$(".scroll-right").attr("src","http://i.imgur.com/X2GTv0I.png");
+    });
+
 });
 var initialize = function(){
     $(".actor").text(peopleList[index][0]);
@@ -68,7 +82,7 @@ var namechange = function(){
     $(".nametag").append($newname);
     var namewidth = ($(".actor").width()*2 + 1) + "px";
     $newname.css('opacity',0);
-    $(".nametag").animate({'width':namewidth},600, function(){$newname.animate({opacity:1})});
-    
-    
+    $(".nametag").animate({'width':namewidth},600, function(){$newname.animate({opacity:1})});    
 }
+
+    
