@@ -1,6 +1,9 @@
 from flask import Flask
 from flask import render_template, redirect, url_for, session, request
 import utils
+import movie_info
+import getData
+
 app = Flask(__name__)
 app.secret_key = "sjkdfbhasjk"
 
@@ -12,7 +15,11 @@ def home():
 def search():
 	if request.method=="POST":
 		movieQuery = request.form['movie']
-	
+		stats = movieInfo(findMovieLinks(movieQuery, 10)[1]['link'],10))
+		dead = stats['statusCounts'].get('dead')
+		alive = stats['statusCounts'].get('alive')
+		unknown = stats['statusCounts'].get('unkown')
+		
 
 @app.route("/register",methods=['GET','POST'])
 def register():
