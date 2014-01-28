@@ -21,6 +21,28 @@ def search():
 
 @app.route("/results")
 def results():
+	#actors = stats['actors']
+	#for sTable,data in stats.iteritems():
+	#	if sTable == 'predictedAllDeadYear':
+	#		predicitedAllDeadYear = data
+	#	if sTable == 'statusPercents':
+	#		for stat,statistic in statusPercents.iteritems():
+	#			if stat == 'dead':
+	#				deadCountPercent = statistics
+	#			if stat == 'alive':
+	#				aliveCountPercent = statistics
+	#			if stat == 'unkown':
+	#				unkownCountPercent = statistics
+	#	if sTable == 'statusCounts':
+	#		for stat,statistic in statusCounts.iteritems():
+	#			if stat == 'dead':
+	#				deadCount = statistic
+	#			if stat == 'alive':
+	#				aliveCount = statistic
+	#			if stat == 'unkown':
+	#				unkownCoutn = statistic
+	return render_template("results.html",results=session["stats"])
+	#return render_template("results.html",  deadCount = deadCount)
     return render_template("results.html",results=session["stats"])
 
 
