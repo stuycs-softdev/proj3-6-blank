@@ -1,0 +1,150 @@
+html, body{
+
+    height:100%;
+}
+#header{
+    height: 10%;
+    width: 100%;
+}
+#content{
+    height: 80%;
+    width: 100%;
+    background-image: url("http://www.greektome.net/sitebuilder/images/Nice_Grey_Background_op_680x453-1003x877.jpg");
+    background-size: 100% 100%;
+}
+.bevel{
+    margin-left: auto;
+    margin-right:auto;
+    text-align:center;
+    padding: 2px;
+    width: 700px;
+    margin-bottom: 15px;
+    background: #efefef ;
+    border-top: 3px;
+    border-bottom: 3px;
+    border-left: 6px;
+    border-right:6px;
+    border-style: ridge;
+}
+.pic{
+    height: 30px;
+}
+.title{
+    color: black;
+}
+.title:hover{
+    color:orange;
+}
+
+#movie-search{
+    text-align: left;
+    display: inline-block;
+}
+.spooky-text{
+    font-family: 'Jolly Lodger', cursive;
+    text-align: center;
+    color: #fafafa;
+}
+#dead-pic{
+    padding: 10px;
+}
+#rotator-ui{
+    width: 1000px;
+    height: 500px;
+    display:block;
+    text-align:center;
+   margin-left: auto;
+   margin-right:auto;
+}
+#rotator-title{
+    font-family: 'Averia Sans Libre', cursive;
+    color: #DBA901;
+    font-size: 30px;
+}
+.tiny{
+    font-size: 10px;
+}
+.dead-person{
+    height: 300px;   
+    border-top: 10px dotted;
+    border-bottom: 10px dotted        ; 
+    border-right: 8px solid;        
+    border-left: 8px solid  ;
+    background-color: white;
+}
+
+.scroll-left{
+    height: 300px;
+    width: 50px;
+}
+.scroll-right{
+    height: 300px;
+    width: 50px;
+
+}
+.nametag{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 75px;
+    width:160px;
+    background-image: url("http://www.artlex.com/ArtLex/p/images/parchment_blnk.scroll.lg.gif");
+    background-size:100% 100%;
+}
+.info-box{
+    font-family: 'Rock Salt', cursive;
+    text-align: center; 
+    margin:0;
+    padding:30 0 0 0;
+}
+.movie{
+    font-family: 'Averia Sans Libre', cursive;
+    font-size: 20px;
+    line-height: 70%
+}
+.death-date{
+    font-size: 15px;   
+}
+#tabs{
+    text-align: right;
+    width: 400px;
+    position: fixed;
+    right: 50px;
+    top:40%;
+    font-size:10px;
+}
+
+#footer{
+    height: 50px;
+    position:fixed;
+    bottom:0px;
+    float: left;
+}
+
+#github-link{
+    display: inline;   
+    position: fixed;
+    left: 10px;
+    bottom:5px;
+    
+}
+#redirect-icon{
+    height:20px;    
+    
+}
+#xkcd{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+#xkcd-img{
+    width:50px;
+}
+#xkcd-link{
+    margin-left:auto;
+    margin-right:auto;
+    display: inline;
+    font-family: 'Loved by the King', cursive;
+    font-size: 16px;
+}

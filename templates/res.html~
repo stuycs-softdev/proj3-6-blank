@@ -1,0 +1,8 @@
+
+{% for result in range(results|length) %}
+<div class = "movie-option">
+  <img class = "pic" src = result[0]>
+
+
+</div>
+{% endfor %}
