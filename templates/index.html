@@ -18,121 +18,126 @@
   </script>
 </head>
 <body>
-<div id = "header" > 
-Death Watcher
-
-<form action = "/search" method="POST" id="movie-search"> 
-  <label> Search for a movie </label>
-  <input name  = "movie" placeholder="Movie" type="text"> 
-  <input type = "submit" value = "Search">
-</form> 
-
-</div>
-<div id = "content">
-<div class = "spooky-text"> 
-Everybody dies. <br> 
-We just care about some more than others.</div>
-<div id = "rotator-ui">
-<div id = "rotator-title"> DEAD PEOPLE YOU <span class = "tiny">(might)</span> CARE ABOUT</div>
-<div id = "js-box"> 
-
-<img src = "{{ url_for('static', filename='Left.png')}}" class = "scroll-left">
-<span id="dead-pic">
-<img src = "" class="dead-person">
-</span>
-<img src = "{{ url_for('static', filename='Right.png')}}" class = "scroll-right">
-</div>
-<div class = "nametag">
-<p class = "info-box">
-    <span class = "actor">  </span> <br>
-    <span class = "movie">  </span>
-</p> 
-</div>
-<img>
-
-<div id = "tabs">
-  <ul>
-    <li> <a href="#tabs-1">Login</a> </li>
-    <li> <a href="#tabs-2">Register</a></li>
-  </ul>
-  <div id = "tabs-1">
-    <form action = "login" method = "post">
-      <label> Username </label> 
-      <input name = "username_login" placeholder="Username" type="text"> <br>
-      
-      <label> Password </label>
-      <input name = "password_login" placeholder="Password" type="password"> <br>
-      <input type = "submit" value = "Login">
-    </form>
+  <div id = "header" > 
+    Death Watcher <br>
+    <form action = "/search" method="POST" id="movie-search"> 
+      <label> Search by Movie Title </label>
+      <input name  = "movie" placeholder="Movie" type="text"> 
+      <input type = "submit" value = "Search">
+    </form> 
+    <form action = "/searchp" method="POST" id="person-search">
+      <label> Search by Actor </label>
+      <input name  = "actor" placeholder="Actor" type="text"> 
+      <input type = "submit" value = "Search">
+    </form> 
   </div>
-  <div id = "tabs-2"> 
-    <form action = "register" method = "post">
-      <label> Username </label> 
-      <input name = "username_register" placeholder="Username" type="text"> <br>
-      
-      <label> Password </label>
-      <input name = "password_register" placeholder="Password" type="password"> <br>
-      
+  <div id = "content">
+    <div class = "spooky-text"> 
+      Everybody dies. <br> 
+      We just care about some more than others.
+    </div>
+    <div id = "rotator-ui">
+      <div id = "rotator-title"> DEAD PEOPLE YOU <span class = "tiny">(might)</span> CARE ABOUT</div>
+      <div id = "js-box"> 
+	
+	<img src = "{{ url_for('static', filename='Left.png')}}" class = "scroll-left">
+	<span id="dead-pic">
+	  <img src = "" class="dead-person" title="We see dead people">
+	</span>
+	<img src = "{{ url_for('static', filename='Right.png')}}" class = "scroll-right">
+      </div>
+      <div class = "nametag">
+	<p class = "info-box">
+	  <span class = "actor">  </span> <br>
+	  <span class = "movie">  </span>
+	</p> 
+      </div>
+    </div>
+    <div id = "tabs">
+      <ul>
+	<li> <a href="#tabs-1">Login</a> </li>
+	<li> <a href="#tabs-2">Register</a></li>
+      </ul>
+      <div id = "tabs-1">
+	<form action = "login" method = "post">
+	  <label> Username </label> 
+	  <input name = "username_login" placeholder="Username" type="text"> <br>
+	  
+	  <label> Password </label>
+	  <input name = "password_login" placeholder="Password" type="password"> <br>
+	  <input type = "submit" value = "Login">
+	</form>
+      </div>
+      <div id = "tabs-2"> 
+	<form action = "register" method = "post">
+	  <label> Username </label> 
+	  <input name = "username_register" placeholder="Username" type="text"> <br>
+	  
+	  <label> Password </label>
+	  <input name = "password_register" placeholder="Password" type="password"> <br>
+	  
       <label> Confirm Password </label>
       <input name = "confirm_password" placeholder="Password" type="password"> <br>
       <input type = "submit" value = "Login">
-    </form>
-  </div>
-  <div id = "errors">
-    {% if type_register==0 %}
-    <p style="color:green"> Registration Successful!</p>
-    {% elif type_register==1 %}
-    <div class="ui error form segment">
-      <div class="ui error message">
-        <p id="error">Sorry, this username is already taken! Please choose another.</p>
+	</form>
       </div>
-    </div>
-    
-    {% elif type_register==2 %}
-    <div class="ui error form segment">
-      <div class="ui error message">
-        <p id="error">Your username must be at least 4 character long and your password must be at least 6 characters long.</p>
-      </div>
-    </div>
-    
-    {% elif type_register==3 %}
-    <div class="ui error form segment">
-      <div class="ui error message">
+      <div id = "errors">
+	{% if type_register==0 %}
+	<p style="color:green"> Registration Successful!</p>
+	{% elif type_register==1 %}
+	<div class="ui error form segment">
+	  <div class="ui error message">
+            <p id="error">Sorry, this username is already taken! Please choose another.</p>
+	  </div>
+	</div>
+	  
+	{% elif type_register==2 %}
+	<div class="ui error form segment">
+	  <div class="ui error message">
+            <p id="error">Your username must be at least 4 character long and your password must be at least 6 characters long.</p>
+	  </div>
+	</div>
+	
+	{% elif type_register==3 %}
+	<div class="ui error form segment">
+	  <div class="ui error message">
         <p id="error">Your passwords did not match. Please try again.</p>
+	  </div>
+	</div>
+	{% endif %}
+	
+	{% if type_login ==1 %}
+	<div class="ui error form segment">
+          <div class="ui error message">
+              <p id="error"> Your password did not match your username. Please try again.</p>
+          </div>
+	</div>
+	{% endif %}
+	
       </div>
     </div>
-    {% endif %}
+    
+    
+  </div> <!--closes content-->
+  <div id = "footer">
+    
+    <a href = "https://github.com/stuycs-softdev/proj3-6-blank"> <h5 id = "github-link">Visit our repository on GitHub!</h5> 
+	</a>
+    <a href ="http://xkcd.com/493/"> 
       
-      {% if type_login ==1 %}
-      <div class="ui error form segment">
-        <div class="ui error message">
-          <p id="error"> Your password did not match your username. Please try again.</p>
-        </div>
-      </div>
-      {% endif %}
-
-</div>
-
-
-</div> <!--closes content-->
-<div id = "footer">
-
-<a href = "https://github.com/stuycs-softdev/proj3-6-blank"> <h5 id = "github-link">Visit our repository on GitHub!</h5> 
-</a>
-<a href ="http://xkcd.com/493/"> 
-
-<table id = "xkcd">
-    <tr>
-    <td> <img src="http://jlevrt.webstarts.com/uploads/114814-magic-marker-icon-arrows-arrow-redirect-right1-ps.png" id = "redirect-icon">
-    <td>
-        <h5 id= "xkcd-link"> The comic that started it all. </h5>
-    </td>
-    <td> 
-        <img src = "http://www.userlogos.org/files/logos/Mafia_Penguin/xkcdLogo.png" id = "xkcd-img">
-    </td>
-    </tr>
-</table>
-</a>
-</div>
+      <table id = "xkcd">
+	<tr>
+	  <td> <img src="http://jlevrt.webstarts.com/uploads/114814-magic-marker-icon-arrows-arrow-redirect-right1-ps.png" id = "redirect-icon">
+	  <td>
+	    <h5 id= "xkcd-link"> The comic that started it all. </h5>
+	  </td>
+	  <td> 
+	    <img src = "http://www.userlogos.org/files/logos/Mafia_Penguin/xkcdLogo.png" id = "xkcd-img">
+	  </td>
+	</tr>
+      </table>
+    </a>
+  </div>
+  
 </body>
 </html>

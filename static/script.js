@@ -33,7 +33,7 @@ var right = function(){
     if (index > 19) {index = 0;}
     var src = peopleList[index][4];
     var $old = $(".dead-person");
-    var $new = $("<img src='" + src+"'</img>").addClass("dead-person");  
+    var $new = $("<img title= 'We see dead people' src='" + src+"'</img>").addClass("dead-person");  
     $new.css('opacity', 0);
     
     $old.animate({
@@ -56,7 +56,7 @@ var left = function(){
     if (index < 0){ index = 19; }
     var src = peopleList[index][4];
     var $old = $(".dead-person");
-    var $new = $("<img src='" + src+"'</img>").addClass("dead-person");  
+    var $new = $("<img title = 'We see dead people.' src='" + src+"'</img>").addClass("dead-person");  
     $new.css('opacity', 0);
     
     $old.animate({
