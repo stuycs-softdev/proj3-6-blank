@@ -11,15 +11,19 @@ app.secret_key = "sjkdfbhasjk"
 def home():
     return render_template("index.html")
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
 	if request.method=="POST":
 		movieQuery = request.form['movie']
-		stats = movieInfo(findMovieLinks(movieQuery, 10)[1]['link'],10)
-		dead = stats['statusCounts'].get('dead')
-		alive = stats['statusCounts'].get('alive')
-		unknown = stats['statusCounts'].get('unkown')
-		
+		stats = movie_info.findMovieLinks(movieQuery, 10)
+                session['stats'] = stats
+                return redirect("/results")
+
+@app.route("/results")
+def results():
+    return render_template("results.html",results=session["stats"])
+
+
 
 @app.route("/register",methods=['GET','POST'])
 def register():
