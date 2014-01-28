@@ -63,7 +63,7 @@
     font-family: 'Rock Salt', cursive;
     text-align: center; 
     margin:0;
-    padding:17 0 0 0;
+    padding:30 0 0 0;
 }
 .movie{
     font-family: 'Averia Sans Libre', cursive;
@@ -83,7 +83,7 @@
 }
 
 #footer{
-    height: 100px;
+    height: 50px;
     position:fixed;
     bottom:0px;
     float: left;
