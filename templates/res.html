@@ -1,6 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="/static/js/jquery.js"></script>
+  
+  <link rel="stylesheet" href = "//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <link rel='stylesheet' href='{{ url_for("static",filename="stylesheet.css")}}'/>
+  <link href='http://fonts.googleapis.com/css?family=Loved+by+the+King' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Averia+Sans+Libre' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src={{url_for('static',filename='resultscript.js')}}></script>
+  <title> Results </title>
+</head>
 
-{% for result in results %}
-<div class = "movie-option">
-  <img src = {{result['pic']}} class = "pic">
-</div>
-{% endfor %}
+<body>
+  <div id = "header" > 
+    <a href = "/"> Death Watcher </a> <br>
+    <form action = "/search" method="POST" id="movie-search"> 
+      <label> Search by Movie Title </label>
+      <input name  = "movie" placeholder="Movie" type="text"> 
+      <input type = "submit" value = "Search">
+    </form> 
+  </div>
+  <div id = "content">
+    <br>
+    {% for result in results %}
+    <div class = "bevel">
+      <img src = {{result['pic']}} class = "pic">
+      <a href={{result['link']}} target = "_blank"  class = "title"> {{result['title']}} </a>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

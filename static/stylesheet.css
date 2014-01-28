@@ -12,6 +12,29 @@ html, body{
     background-image: url("http://www.greektome.net/sitebuilder/images/Nice_Grey_Background_op_680x453-1003x877.jpg");
     background-size: 100% 100%;
 }
+.bevel{
+    margin-left: auto;
+    margin-right:auto;
+    text-align:center;
+    padding: 2px;
+    width: 700px;
+    margin-bottom: 15px;
+    background: #efefef ;
+    border-top: 3px;
+    border-bottom: 3px;
+    border-left: 6px;
+    border-right:6px;
+    border-style: ridge;
+}
+.pic{
+    height: 30px;
+}
+.title{
+    color: black;
+}
+.title:hover{
+    color:orange;
+}
 
 #movie-search{
     text-align: left;
