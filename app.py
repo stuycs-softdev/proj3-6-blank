@@ -8,6 +8,11 @@ app.secret_key = "sjkdfbhasjk"
 def home():
     return render_template("index.html")
 
+@app.route("/search")
+def search():
+	if request.method=="POST":
+		movieQuery = request.form['movie']
+	
 
 @app.route("/register",methods=['GET','POST'])
 def register():
