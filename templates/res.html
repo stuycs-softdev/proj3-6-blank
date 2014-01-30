@@ -2,6 +2,8 @@
 <html>
 <head>
   <script type="text/javascript" src="/static/js/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/amcharts.js"></script>
+  <script type="text/javascript" src="/static/js/pie.js"></script>
   
   <link rel="stylesheet" href = "//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -34,14 +36,18 @@
     </div>
     {% endfor %}
   {% if "data" in session %}
-  <div id = 'statuscounts'>
-    <div id = 'alive'> Number Living {{data[1]['statusCounts']['alive']}} </div>
-    <div id = 'dead'> Number Dead {{data[1]['statusCounts']['dead']}} </div>
-    <div id = 'unknown'> Number Misplaced {{data[1]['statusCounts']['unkown']}} </div>
-  </div>
-  <div id = 'all-dead'> Everyone will be dead by {{data[1]['predictedAllDeadYear']}} </div>
+  
+    <div id = 'statuscounts'>
     
-  {% endif %}
+      <div class = "death-stats"> Number Living: <span id="living">{{data[1]['statusCounts']['alive']}}</span> </div>
+      <div class = "death-stats"> Number Dead: <span id="dead">{{data[1]['statusCounts']['dead']}}</span> </div>
+      <div id = 'unknown'> Number Misplaced: <span id="unknown">{{data[1]['statusCounts']['unkown']}}</span></div>
+    <div id = 'all-dead'> 
+      Everyone will be dead by {{data[1]['predictedAllDeadYear']}} 
+    </div>
+    </div>
+    
+    {% endif %}
   </div>
 
 </body>

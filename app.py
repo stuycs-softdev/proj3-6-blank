@@ -32,6 +32,7 @@ def search():
 		movieQuery = request.form['movie']
 		stats = movie_info.findMovieLinks(movieQuery, 10)
                 session['stats'] = stats
+                session.pop('data',None)
                 return redirect("/results")
 
 @app.route("/results")
