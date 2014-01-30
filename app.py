@@ -3,8 +3,7 @@ from flask import render_template, redirect, url_for, session, request
 import utils
 import movie_info
 import getData
-import oauthgoogle
-import json
+
 import urllib,urllib2
 
 app = Flask(__name__)
@@ -43,6 +42,8 @@ def results():
         ans = []
         ans.append(movie_info.findActorLinks(x['link'],20))
         ans.append(movie_info.getResults(ans[0]))
+        session["data"] = ans
+        print ans [1]
         return render_template("res.html", results=[x], data = ans);
     else: 
         return render_template("res.html",results=session["stats"])

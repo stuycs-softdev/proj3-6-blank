@@ -8,9 +8,12 @@ $(document).ready(function () {
 	    function(){
 		$(this).remove();
 		var x = $(".bevel").attr('index');
-		window.location("/results?choice="+x);
-	    }
+	    };
+	    setTimeOut(
+		function(){ window.location = '/results?choice='+x;},
+		600);
 	);
+
     });
 });
 
