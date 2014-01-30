@@ -22,4 +22,4 @@ Satisfy any of your morbid curiosities in two easy steps! Simply search up the m
 Find out how much of the cast of any movie has croaked! We'll also do the calculations to predict when EVERYONE will be dead!
 
 
-Note: after clicking on the results page, there will be a long delay (~20 seconds). The site has (probably) not broken.
+Note: after clicking on the results page, there will be a long delay (~20 seconds) as our minions scour the archives. The site has (probably) not broken.
